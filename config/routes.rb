@@ -5,8 +5,9 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'home#index'
-  resources :users
+  resources :users, only: [:show]
 
+  resources :courses
   # Overrides routes for devise controller
   # Rails.application.routes.draw do
   #   devise_for :users, controllers: {
@@ -16,7 +17,7 @@ Rails.application.routes.draw do
   # end
 
   # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
+  # get 'products/:id' => 'catalog#view'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase

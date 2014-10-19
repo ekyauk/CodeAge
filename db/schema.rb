@@ -11,7 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141005083753) do
+ActiveRecord::Schema.define(version: 20141019173227) do
+
+  create_table "courses", force: true do |t|
+    t.string   "name"
+    t.string   "url"
+    t.string   "description"
+    t.integer  "ratings"
+    t.integer  "difficulty"
+    t.time     "duration"
+    t.integer  "review_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "courses_to_users", force: true do |t|
+    t.integer "user_id"
+    t.integer "course_id"
+  end
+
+  add_index "courses_to_users", ["course_id", "user_id"], name: "index_courses_to_users_on_course_id_and_user_id"
 
   create_table "users", force: true do |t|
     t.string   "username"
